@@ -1,18 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <!--  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-  <HereMap :center="center"/>
+  <MainMaps/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import HereMap from './components/HereMap.vue'
+import MainMaps from "@/components/MainMaps";
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld
-    HereMap
+    MainMaps
   },
   //
   data() {
