@@ -22,21 +22,55 @@ export default {
     };
   },
   async mounted() {
-    console.log("ROUTE MAP MOUNTED")
     // Initialize the platform object:
     const platform = new window.H.service.Platform({
       apikey: this.apikey
     });
     this.platform = platform;
-    this.initializeHereMap();
+
+    this.$nextTick(() => {
+      this.$nextTick(() => {
+        this.initializeHereMap();
+      });
+    });
+
+    // this.$nextTick(() => {
+    //   return this.$nextTick()
+    // }).finally(() => {
+    //   this.initializeHereMap();
+    // })
+
+    // this.mNextTick(2, () => {
+    //   this.initializeHereMap();
+    // });
   },
   methods: {
+    /*mNextTick(nrOfTicks, fn) {
+      let prevTick = null;
+      for (let i = 1; i <= nrOfTicks; i++) {
+        if (i === 1) { // first one
+          prevTick = () => {
+            this.$nextTick(fn);
+          }
+        } else {
+          // add more!
+          if (i === nrOfTicks) {
+            // Execute it!
+            this.$nextTick(prevTick);
+          } else {
+            prevTick = () => {
+              this.$nextTick(prevTick);
+            }
+          }
+        }
+      }
+    },*/
+
     initializeHereMap() { // rendering map
 // Retrieve the target element for the map:
 //       var targetElement = document.getElementById('mapContainer');
       const mapContainer = this.$refs.hereMap;
       const H = window.H;
-
 
 // Get the default map types from the platform object:
 
