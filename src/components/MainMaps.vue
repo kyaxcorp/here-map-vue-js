@@ -11,7 +11,10 @@
         v-for="item in maps"
         :key="item.TabKey"
     >
-      <component :is="item.Component"/>
+      <component
+          :is="item.Component"
+          :center="center"
+      />
     </v-tab-item>
   </v-tabs-items>
 </template>

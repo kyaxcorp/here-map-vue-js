@@ -21,9 +21,6 @@ export default {
   },
   async mounted() {
     // Initialize the platform object:
-
-    console.log("API KEY", process.env.VUE_APP_HERE_API_KEY);
-
     const platform = new window.H.service.Platform({
       apikey: this.apikey
     });
