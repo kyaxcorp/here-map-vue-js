@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "HereMap",
+  name: "HereBasicMap",
   props: {
     center: Object
     // center object { lat: 40.730610, lng: -73.935242 }
