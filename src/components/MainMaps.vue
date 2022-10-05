@@ -19,7 +19,7 @@
   </v-tabs-items>
 </template>
 <script>
-import HereBasicMap from "@/components/maps/HereBasicMap";
+import HereBasicMap from "@/components/maps/here.com/HereBasicMap";
 
 export default {
   components: {
