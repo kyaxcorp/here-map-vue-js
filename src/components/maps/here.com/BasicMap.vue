@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "HereBasicMap",
+  name: "BasicMap",
   props: {
     center: Object
     // center object { lat: 40.730610, lng: -73.935242 }
@@ -19,11 +19,12 @@ export default {
       // You can get the API KEY from developer.here.com
     };
   },
-  async mounted() {
+  mounted() {
     // Initialize the platform object:
     const platform = new window.H.service.Platform({
       apikey: this.apikey
     });
+
     this.platform = platform;
     this.initializeHereMap();
   },
@@ -58,10 +59,11 @@ export default {
 
 <style scoped>
 #map {
-  width: 60vw;
+  /*width: 60vw;*/
   min-width: 360px;
+  min-height: 360px;
   text-align: center;
-  margin: 5% auto;
+  /*margin: 5% auto;*/
   background-color: #ccc;
 }
 </style>

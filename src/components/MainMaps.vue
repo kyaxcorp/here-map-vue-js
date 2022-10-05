@@ -1,39 +1,49 @@
 <template>
-  <v-tabs v-model="tab">
-    <v-tab
-        v-for="item in maps"
-        :key="item.TabKey">
-      {{ item.TabTitle }}
-    </v-tab>
-  </v-tabs>
-  <v-tabs-items v-model="tab">
-    <v-tab-item
-        v-for="item in maps"
-        :key="item.TabKey"
-    >
-      <component
-          :is="item.Component"
-          :center="center"
-      />
-    </v-tab-item>
-  </v-tabs-items>
+  <v-card>
+    <v-toolbar
+        color="primary">
+      <v-toolbar-title>Maps</v-toolbar-title>
+    </v-toolbar>
+    <v-tabs
+        centered=""
+        v-model="tab"
+        color="primary">
+      <v-tab :key="map.TabTitle" v-for="map in maps">
+        <v-icon start>
+          mdi-account
+        </v-icon>
+        {{ map.TabTitle }}
+      </v-tab>
+    </v-tabs>
+    <v-window v-model="tab">
+      <v-window-item :key="map.TabTitle" v-for="(map, i) in maps" :value="i">
+        <v-card flat>
+          <component :is="map.Component" :center="center"/>
+        </v-card>
+      </v-window-item>
+    </v-window>
+  </v-card>
 </template>
 <script>
 import HereBasicMap from "@/components/maps/here.com/BasicMap";
+import HereRouteMap from "@/components/maps/here.com/RouteMap";
 
 export default {
-  components: {
-    HereBasicMap
-  },
+  components: {},
   //
   data() {
     return {
-      tab: null,
+      tab: 0,
       maps: [
         {
           TabKey: "HereBasicMap",
           TabTitle: "Here Basic Map",
           Component: HereBasicMap,
+        },
+        {
+          TabKey: "HereRouteMap",
+          TabTitle: "Here Route Map",
+          Component: HereRouteMap,
         }
       ],
 
@@ -43,6 +53,10 @@ export default {
         lng: -73.935242
       }
     }
+  },
+
+  mounted() {
+
   }
 }
 </script>
