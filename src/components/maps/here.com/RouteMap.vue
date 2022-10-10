@@ -1,7 +1,7 @@
 <template>
   <div id="map">
     <!--In the following div the HERE Map will render-->
-    <div id="mapContainer" style="height:600px;width:100%" ref="hereMap"></div>
+    <div id="mapContainer" style="height:1000px;width:100%" ref="hereMap"></div>
   </div>
 </template>
 
@@ -101,12 +101,23 @@ export default {
         'transportMode': 'truck',
         // The start point of the route:
         // 'origin': '50.1120423728813,8.68340740740811',
-        'origin': '40.712598095317205,-74.00584860194301',
+        // 'origin': '40.712598095317205,-74.00584860194301', // Original
+        // 'origin': '40.99985190273328,-73.94201704967232', // Case 1
+        // 'origin': '40.042829385213174,-111.75327849488903', // Case 2
+        // 'origin': '32.89678062565002,-111.78781069575103', // Case 3
+        'origin': '47.22035783531442,-122.24171397029724', // Case 4
         // The end point of the route:
         // 'destination': '52.5309916298853,13.3846220493377',
-        'destination': '34.05223904982168,-118.24365264224112',
+        // 'destination': '34.05223904982168,-118.24365264224112',
+        // 'destination': '40.557872320840566,-90.08249956990404', // Case 1
+        // 'destination': '32.862271177481304,-111.78854610704514', // Case 2
+        // 'destination': '40.685456099570125,-75.34759125380481', // Case 3
+        'destination': '39.92417493520615,-83.13772628775335', // Case 3
         // Include the route shape in the response
-        'return': 'polyline'
+
+        'via': '35.2063469526103,-101.84719860119354!passThrough=true', // https://developer.here.com/documentation/routing-api/dev_guide/topics/waypoint.html
+
+        'return': 'polyline,summary,passthrough'
         // https://developers.google.com/maps/documentation/utilities/polylineutility decode polyline?!
       };
 
